@@ -1,0 +1,21 @@
+<h2>My Bonds</h2>
+
+<div>
+  <label>Bond name:
+    <input #bondName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(bondName.value); bondName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="bonds">
+  <li *ngFor="let bond of bonds">
+    <a routerLink="/detail/{{bond.id}}">
+      <span class="badge">{{bond.id}}</span> {{bond.name}}
+    </a>
+    <button class="delete" title="delete bond"
+      (click)="delete(bond)">x</button>
+  </li>
+</ul>
