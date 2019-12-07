@@ -1,6 +1,8 @@
-# Tour Of Bonds
+# Tour Of Bonds Lab
 
-Sample Angular app based on the tour of heros for labs.
+Sample Angular app based on the tour of heros for an Angular Lab.
+
+_NOTE:_ To share progress with other developers working on the lab fork this repo and clone your fork. This will allow you to execute `git push`.
 
 ## Installation
 
@@ -32,4 +34,9 @@ Run `ng test` or `npm run test`.
 Run `ng e2e` or  `npm run e2e`.
 
 ### Linting
+
 Run `tslint ./src/**/*.ts -t verbose` or `npm run lint`.
+
+### Contributions
+
+Fork this repo and create a pull request.
