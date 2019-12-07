@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getBonds(): void {
     this.bondService.getBonds()
-      .subscribe(bonds => this.bonds = bonds.slice(2, (bonds.length / 2) + 2));
+      .subscribe(bonds => this.bonds = bonds.slice(1, 5));
   }
 }
