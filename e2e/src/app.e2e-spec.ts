@@ -35,12 +35,12 @@ class Bond {
   // Bond id and name from the given detail element.
   static async fromDetail(detail: ElementFinder): Promise<Bond> {
     // Get bond id from the first <div>
-    const _id = await detail.all(by.css('div')).first().getText();
+    const idFromDiv = await detail.all(by.css('div')).first().getText();
     // Get name from the h2
-    const _name = await detail.element(by.css('h2')).getText();
+    const nameFromH2 = await detail.element(by.css('h2')).getText();
     return {
-        id: +_id.substr(_id.indexOf(' ') + 1),
-        name: _name.substr(0, _name.lastIndexOf(' '))
+        id: + idFromDiv.substr(idFromDiv.indexOf(' ') + 1),
+        name: nameFromH2.substr(0, nameFromH2.lastIndexOf(' '))
     };
   }
 }
@@ -288,7 +288,7 @@ function expectHeading(hLevel: number, expectedText: string): void {
     const hTag = `h${hLevel}`;
     const hText = element(by.css(hTag)).getText();
     expect(hText).toEqual(expectedText, hTag);
-};
+}
 
 function getBondAEltById(id: number): ElementFinder {
   const spanForId = element(by.cssContainingText('li span.badge', id.toString()));

@@ -31,7 +31,7 @@ export class MessageService {
       );
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
       console.log(`${operation} failed: ${error.message}`);

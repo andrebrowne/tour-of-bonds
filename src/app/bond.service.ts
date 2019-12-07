@@ -67,7 +67,7 @@ export class BondService {
   //////// Save methods //////////
 
   /** POST: add a new bond to the server */
-  addBond (bond: Bond): Observable<Bond> {
+  addBond(bond: Bond): Observable<Bond> {
     return this.http.post<Bond>(this.bondsUrl, bond, this.httpOptions).pipe(
       tap((newBond: Bond) => this.log(`added bond w/ id=${newBond.id}`)),
       catchError(this.handleError<Bond>('addBond'))
@@ -75,7 +75,7 @@ export class BondService {
   }
 
   /** DELETE: delete the bond from the server */
-  deleteBond (bond: Bond | number): Observable<Bond> {
+  deleteBond(bond: Bond | number): Observable<Bond> {
     const id = typeof bond === 'number' ? bond : bond.id;
     const url = `${this.bondsUrl}/${id}`;
 
@@ -86,7 +86,7 @@ export class BondService {
   }
 
   /** PUT: update the bond on the server */
-  updateBond (bond: Bond): Observable<any> {
+  updateBond(bond: Bond): Observable<any> {
     return this.http.put(this.bondsUrl, bond, this.httpOptions).pipe(
       tap(_ => this.log(`updated bond id=${bond.id}`)),
       catchError(this.handleError<any>('updateBond'))
@@ -99,7 +99,7 @@ export class BondService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
