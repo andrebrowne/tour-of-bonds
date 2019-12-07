@@ -36,6 +36,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // if the bonds array is not empty, the method below returns the highest
   // bond id + 10.
   genId(bonds: Bond[]): number {
-    return bonds.length > 0 ? Math.max(...bonds.map(bond => bond.id)) + 11 : 10;
+    const BASE_ID = 10;
+    return bonds.length > 0 ? Math.max(...bonds.map(bond => bond.id)) + BASE_ID : BASE_ID;
   }
 }
