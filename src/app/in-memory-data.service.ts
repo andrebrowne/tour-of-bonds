@@ -7,15 +7,6 @@ import { Injectable } from '@angular/core';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const bondList = [
-      { id:  10, name: 'James'},
-      { id:  20, name: 'Barry'},
-      { id: 150, name: 'Gold' },
-      { id:  30, name: 'Bearer' },
-      { id: 100, name: '' },
-      { id:  40, name: 'Bearer' },
-    ];
-
     const bonds = [
       { id:  10, name: 'James' },
       { id:  20, name: 'Barry' },
@@ -34,7 +25,9 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 150, name: 'Gold' },
     ];
 
-    return { bonds, bondList };
+    return {
+      bonds
+    };
   }
 
   // Overrides the genId method to ensure that a bond always has an id.
