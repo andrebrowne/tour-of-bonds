@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bond } from '../bond';
-import { MessageService } from '../message.service';
+import { BondService } from '../bond.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +10,14 @@ import { MessageService } from '../message.service';
 export class DashboardComponent implements OnInit {
   bonds: Bond[] = [];
 
-  constructor(private messageService: MessageService) { }
+  constructor(private bondService: BondService) { }
 
   ngOnInit() {
     this.getBonds();
   }
 
   getBonds(): void {
-    this.messageService.getBondList()
+    this.bondService.getBonds()
       .subscribe(bonds => this.bonds = bonds.slice(2, (bonds.length / 2) + 2));
   }
 }

@@ -22,21 +22,4 @@ export class MessageService {
     this.messages = [ 'All messages cleared'];
   }
 
-  /** GET bonds from the server */
-  getBondList(): Observable<Bond[]> {
-    return this.http.get<Bond[]>(this.bondsUrl)
-      .pipe(
-        tap(_ => console.log('fetched bond list')),
-        catchError(this.handleError<Bond[]>('getBondList', []))
-      );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error); // log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
 }
