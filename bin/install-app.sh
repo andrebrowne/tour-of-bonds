@@ -6,4 +6,4 @@ echo "Updating project angular cli (ng)..."
 npm install @angular/cli@latest
 echo "Install project dependencies"
 npm install
-echo "Tour of Bonds is ready!"
+echo "Tour of Bonds is ready. To run use \"ng serve\". See README.md for more details."
